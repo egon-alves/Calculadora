@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body style="background-color: grey;">
+    
+    <div class="container">
+        <div class="row">
+            <div class=" d-flex justify-content-center">
+                <br>
+                <div class="calculadora">
+                    <input type="text" id="resultado" class="resultado form-control" placeholder="0" disabled="disabled">
+                    <div class="row">
+                        <button onclick="calcular('acao', 'c')" type="button" class="btn clear btn-lg font-weight-light btn-dark">C</button>
+                        <button onclick="calcular('acao', '/')" type="button" class="btn btn-lg font-weight-light btn-dark">/</button>
+                        <button onclick="calcular('acao', '*)" type="button" class="btn btn-lg font-weight-light btn-dark">x</button>
+
+                    </div>
+
+                    <div class="row">
+                        <button onclick="calcular('valor', '7')" type="button" class="btn btn-dark btn-lg font-weight-light">7</button>
+                        <button onclick="calcular('valor', '8')" type="button" class="btn btn-dark btn-lg font-weight-light">8</button>
+                        <button onclick="calcular('valor', '9')" type="button" class="btn btn-dark btn-lg font-weight-light">9</button>
+                        <button onclick="calcular('acao', '-')" type="button" class="btn btn-dark btn-lg font-weight-light">-</button>
+
+                    </div>
+
+                    <div class="row">
+                        <button onclick="calcular('valor', '4')" type="button" class="btn btn-dark btn-lg font-weight-light">4</button>
+                        <button onclick="calcular('valor', '5')" type="button" class="btn btn-dark btn-lg font-weight-light">5</button>
+                        <button onclick="calcular('valor', '6')" type="button" class="btn btn-dark btn-lg font-weight-light">6</button>
+                        <button onclick="calcular('acao', '+')" type="button" class="btn btn-dark btn-lg font-weight-light">+</button>
+
+
+                    </div>
+
+                    <div class="row">
+                        <button onclick="calcular('valor', '1')" type="button" class="btn btn-dark btn-lg font-weight-light">1</button>
+                        <button onclick="calcular('valor', '2')" type="button" class="btn btn-dark btn-lg font-weight-light">2</button>
+                        <button onclick="calcular('valor', '3')" type="button" class="btn btn-dark btn-lg font-weight-light">3</button>
+                        <button onclick="calcular('acao', '=')" type="button" class="btn btn-dark btn-lg font-weight-light enter">=</button>
+
+
+                    </div>
+
+                    <div class="row enter1">
+
+                        <button onclick="calcular('valor', '0')" type="button" class="btn btn-dark btn-lg zero font-weight-light">0</button>
+                        <button onclick="calcular('acao', '.')" type="button" class="btn btn-dark btn-lg font-weight-light">.</button>
+
+
+                    </div>
+                    <div class="rodape">
+                        
+                        <a class="link" href="https://github.com/Egon-Alves">github - Egon-Alves</a>  <br>
+                        <p class="rodape2"> 
+                            Calculadora 2022 
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+    <script>
+        function calcular(tipo, valor){ 
+
+            if (tipo === 'acao') {
+                 if (valor ==='c') {
+                    // Limpar o visor 
+                    document.getElementById('resultado').value =''
+                 }
+                 if (valor === '+' || valor === '-' || valor === '*' || valor === '/' || valor === '.') {
+                    document.getElementById('resultado').value += valor
+                 }
+
+                 if ( valor === '=') {
+                    var valor_campo = eval(document.getElementById('resultado').value)
+                    
+                    document.getElementById('resultado').value = valor_campo
+
+                 }
+
+            
+        } else if (tipo === "valor") {
+            document.getElementById('resultado').value += valor
+        }
+
+
+        }
+
+        
+    </script>
+</body>
+</html>
